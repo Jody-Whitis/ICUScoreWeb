@@ -1,0 +1,2 @@
+C:\Users\jwhitis\source\repos\ICUScoreWeb\ICUScoreWeb\ICUScore.Data\obj\Debug\ICUScore.Data.csprojAssemblyReference.cache
+C:\Users\jwhitis\source\repos\ICUScoreWeb\ICUScoreWeb\ICUScore.Data\obj\Debug\ICUScore.Data.csproj.CoreCompileInputs.cache

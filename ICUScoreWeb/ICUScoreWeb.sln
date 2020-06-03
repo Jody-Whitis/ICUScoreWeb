@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICUScore.Web", "ICUScore.Web\ICUScore.Web.csproj", "{B797AD67-D67C-42CD-A156-67855A8D7A80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICUScore.Data", "ICUScore.Data\ICUScore.Data.csproj", "{793A8B1D-04FD-4F10-A1B7-04694FDF48CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B797AD67-D67C-42CD-A156-67855A8D7A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B797AD67-D67C-42CD-A156-67855A8D7A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B797AD67-D67C-42CD-A156-67855A8D7A80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B797AD67-D67C-42CD-A156-67855A8D7A80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{793A8B1D-04FD-4F10-A1B7-04694FDF48CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{793A8B1D-04FD-4F10-A1B7-04694FDF48CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{793A8B1D-04FD-4F10-A1B7-04694FDF48CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{793A8B1D-04FD-4F10-A1B7-04694FDF48CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FEAA74C4-C999-4DE1-891C-B167A723BCF8}
+	EndGlobalSection
+EndGlobal
