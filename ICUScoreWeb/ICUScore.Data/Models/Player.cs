@@ -13,6 +13,6 @@ namespace ICUScore.Data.Models
         public string Name { get; set; }
         public int Wins { get; set; }
         public int Registered { get; set; }
-        public DateTime RegistrationDate { get; set; }
+        public DateTime? RegistrationDate { get; set; }
     }
 }
