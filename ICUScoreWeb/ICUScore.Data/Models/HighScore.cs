@@ -13,6 +13,6 @@ namespace ICUScore.Data.Models
         public int gID { get; set; }
         public double Highscore { get; set; }
         public DateTime LastUpdated { get; set; }
-        public DateTime LastEmailed { get; set; }
+        public DateTime? LastEmailed { get; set; }
     }
 }
