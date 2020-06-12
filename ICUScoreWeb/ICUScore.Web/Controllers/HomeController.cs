@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ICUScore.Data.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,17 @@ namespace ICUScore.Web.Controllers
 {
     public class HomeController : Controller
     {
+        InMemoryPlayerTable db;
+ 
+        public HomeController(InMemoryPlayerTable db)
+        {
+            this.db = db;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var model = db.GetAll();
+            return View(model);
         }
 
         public ActionResult About()

@@ -92,3 +92,6 @@ C:\Users\jwhitis\source\repos\ICUScoreWeb\ICUScoreWeb\ICUScore.Web\bin\EntityFra
 C:\Users\jwhitis\source\repos\ICUScoreWeb\ICUScoreWeb\ICUScore.Web\bin\Microsoft.Bcl.AsyncInterfaces.xml
 C:\Users\jwhitis\source\repos\ICUScoreWeb\ICUScoreWeb\ICUScore.Web\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\jwhitis\source\repos\ICUScoreWeb\ICUScoreWeb\ICUScore.Web\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\jwhitis\source\repos\ICUScoreWeb\ICUScoreWeb\ICUScore.Web\bin\ICUScore.Data.dll
+C:\Users\jwhitis\source\repos\ICUScoreWeb\ICUScoreWeb\ICUScore.Web\bin\ICUScore.Data.pdb
+C:\Users\jwhitis\source\repos\ICUScoreWeb\ICUScoreWeb\ICUScore.Web\bin\ICUScore.Data.dll.config

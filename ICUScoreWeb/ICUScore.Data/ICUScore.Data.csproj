@@ -72,11 +72,13 @@
     <Compile Include="Models\PvP.cs" />
     <Compile Include="Interface\ILogin.cs" />
     <Compile Include="Security\TwoFactorAuthentication.cs" />
+    <Compile Include="Services\ICUScoreDBContext.cs" />
     <Compile Include="Services\InMemoryGamesTable.cs" />
     <Compile Include="Services\InMemoryHighscoreTable.cs" />
     <Compile Include="Services\InMemoryLoginTable.cs" />
     <Compile Include="Services\InMemoryPlayerTable.cs" />
     <Compile Include="Services\InMemoryPvPTable.cs" />
+    <Compile Include="Services\IScoreData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\package_games_arcade.ico" />
