@@ -17,7 +17,7 @@ namespace ICUScore.Web.App_Start
             var builder = new ContainerBuilder();
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
             builder.RegisterType<InMemoryPlayerTable>().SingleInstance();
-            //builder.RegisterType<ICUScoreDBContext>().SingleInstance();
+            builder.RegisterType<InMemoryHighscoreTable>().SingleInstance();
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }

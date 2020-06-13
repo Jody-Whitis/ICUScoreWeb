@@ -9,9 +9,9 @@ namespace ICUScore.Web.Controllers
 {
     public class HomeController : Controller
     {
-        InMemoryPlayerTable db;
+        InMemoryHighscoreTable db;
  
-        public HomeController(InMemoryPlayerTable db)
+        public HomeController(InMemoryHighscoreTable db)
         {
             this.db = db;
         }

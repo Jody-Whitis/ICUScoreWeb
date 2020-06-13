@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ICUScore.Data.Services
 {
-    public class InMemoryPlayerTable : IScoreData
+    public class InMemoryPlayerTable
     {
         List<Player> players;
         public InMemoryPlayerTable()
@@ -17,7 +17,7 @@ namespace ICUScore.Data.Services
             };
         }
             
-         public IEnumerable<object> GetAll()
+         public IEnumerable<Player> GetAll()
         {
             return players.OrderBy(r => r.Name);
         }

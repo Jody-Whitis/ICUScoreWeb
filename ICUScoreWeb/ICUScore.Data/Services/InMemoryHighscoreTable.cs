@@ -12,9 +12,14 @@ namespace ICUScore.Data.Services
         List<HighScore> highScores;
         public InMemoryHighscoreTable()
         {
-            highScores = new List<HighScore> { new HighScore {ID=0,pID=1,gID=1,Highscore=999,LastEmailed=null,LastUpdated=DateTime.Now } ,
+            highScores = new List<HighScore> { new HighScore {ID=0,pID=1,gID=1,Highscore=999,LastEmailed=null,LastUpdated=DateTime.Now},
             new HighScore {ID=1,pID=2,gID=3,Highscore=100,LastEmailed=null,LastUpdated=DateTime.Now }
             };
+        }
+
+        public IEnumerable<HighScore> GetAll()
+        {
+            return highScores.OrderBy(s => s.Highscore);
         }
     }
 }

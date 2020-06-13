@@ -1,7 +1,12 @@
-﻿@model IEnumerable<ICUScore.Data.Models.Player>
+﻿@model IOrderedEnumerable<ICUScore.Data.Models.HighScore>
 
-<div class="jumbotron">
-    <div>
-        There are @Model.Count() players in the game.
-    </div>
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        @foreach (var score in Model)
+        {
+            <li class="list-group-item">@score.Highscore on @score.LastUpdated</li>
+
+        }
+       
+    </ul>
 </div>
