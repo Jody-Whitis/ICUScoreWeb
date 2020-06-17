@@ -1,12 +1,24 @@
 ﻿@model IOrderedEnumerable<ICUScore.Data.Models.HighScore>
 
-<div class="navbar-collapse collapse">
-    <ul class="nav navbar-nav">
-        @foreach (var score in Model)
-        {
-            <li class="list-group-item">@score.Highscore on @score.LastUpdated</li>
+<div class="jumbotron">
+   <p>Current Scores</p>
+</div>
 
-        }
-       
-    </ul>
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Player</th><th>Highscore</th><th>Score Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach(var score in Model)
+            {
+            <tr>
+                <td>@score.pID</td><td>@score.Highscore</td><td>@score.LastUpdated</td>
+            </tr>
+            }                  
+        </tbody>
+    </table>
 </div>
