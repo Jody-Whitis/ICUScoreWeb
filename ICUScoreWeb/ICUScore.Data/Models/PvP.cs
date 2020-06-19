@@ -11,7 +11,7 @@ namespace ICUScore.Data.Models
     {
         public int ID { get; set; }
         public int pID { get; set; }
-        public int opponentID { get; set; }
+        public string OpponentName{ get; set; }
         public string LastWinner { get; set; }
         public int gID { get; set; }
         public DateTime LastMatch { get; set; }
