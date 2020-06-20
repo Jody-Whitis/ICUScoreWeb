@@ -18,6 +18,7 @@ namespace ICUScore.Web.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.title = "Home";
             var model = db.GetAll();
             return View(model);
         }

@@ -38,6 +38,7 @@ namespace ICUScore.Web.Controllers
                                      PlayerName = p.Name,
                                      lastScored = h.LastUpdated
                                  };
+                ViewBag.Title = "Scoreboard";
                 return View(scoreboard);
             }
             catch

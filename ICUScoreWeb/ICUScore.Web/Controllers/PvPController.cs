@@ -39,6 +39,7 @@ namespace ICUScore.Web.Controllers
                                      lastPlayedDate = s.LastMatch
  
                                  };
+                ViewBag.Title = "PvP";
                 return View(pvpScoreboard);
             }
             catch
