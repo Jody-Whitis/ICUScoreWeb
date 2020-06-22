@@ -194,6 +194,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Scoreboard\Index.cshtml" />
     <Content Include="Views\PvP\Index.cshtml" />
+    <Content Include="Views\Scoreboard\AddScore.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

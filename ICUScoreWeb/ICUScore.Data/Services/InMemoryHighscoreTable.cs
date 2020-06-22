@@ -21,5 +21,12 @@ namespace ICUScore.Data.Services
         {
             return highScores.OrderByDescending(s => s.Highscore);
         }
+
+        public void AddScore(HighScore highScore)
+        {
+            highScores.Add(highScore);
+            //in memory db
+            highScore.ID = highScores.Max(h => h.ID) + 1;
+        }
     }
 }

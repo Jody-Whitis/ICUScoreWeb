@@ -13,5 +13,6 @@ namespace ICUScore.Web.Models
         public DateTime lastScored { get; set; }
         public int PlayerID { get; set; }
 
+
     }
 }

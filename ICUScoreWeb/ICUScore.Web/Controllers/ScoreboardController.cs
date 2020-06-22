@@ -48,5 +48,26 @@ namespace ICUScore.Web.Controllers
             
         
         }
+
+        [HttpGet]
+        public ActionResult AddScore()
+        {
+            return View(); 
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddScore(HighScore highscore)
+        {
+            try
+            {
+                highscoreTable.AddScore(highscore);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View("Error");
+            }
+        }
     }
 }
