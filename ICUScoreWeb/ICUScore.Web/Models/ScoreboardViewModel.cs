@@ -12,6 +12,8 @@ namespace ICUScore.Web.Models
         public double Highscore { get; set; }
         public DateTime lastScored { get; set; }
         public int PlayerID { get; set; }
+        public int gID { get; set; }
+        public int pID { get; set; }
 
 
     }

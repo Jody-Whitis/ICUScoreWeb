@@ -57,12 +57,23 @@ namespace ICUScore.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddScore(HighScore highscore)
+        public ActionResult AddScore(HighScore newHighscore)
         {
+
             try
             {
-                highscoreTable.AddScore(highscore);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    newHighscore.LastUpdated = DateTime.Now;
+                    highscoreTable.AddScore(newHighscore);
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    throw new Exception("Model" + ModelState.IsValid.ToString());
+                }
+
+
             }
             catch
             {
