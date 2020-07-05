@@ -19,5 +19,12 @@ namespace ICUScore.Data.Services
         {
             return pvp.OrderBy(r => r.LastMatch);
         }
+
+        public void AddPvP(PvP newPvP)
+        {
+            pvp.Add(newPvP);
+            newPvP.ID = pvp.Max(p => p.ID) + 1;
+
+        }
     }
 }

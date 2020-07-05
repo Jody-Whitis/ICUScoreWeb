@@ -8,7 +8,7 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>PvP Stats</th>              
+                <th>PvP Stats</th>
             </tr>
         </thead>
 
@@ -16,9 +16,10 @@
             @foreach (var score in Model)
             {
                 <tr>
-                    <td>@score.WinnerName beat @score.OpponentName on @score.lastPlayedDate.ToShortDateString()</td>                      
+                    <td>@score.WinnerName beat @score.OpponentName on @score.lastPlayedDate.ToShortDateString()</td>
                 </tr>
             }
         </tbody>
     </table>
+    @Html.ActionLink("Add", "AddPvP")
 </div>

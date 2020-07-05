@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.ModelBinding;
 using System.Web.Mvc;
 
 namespace ICUScore.Web.Controllers
@@ -47,6 +48,37 @@ namespace ICUScore.Web.Controllers
                 return View("Home");
             }
 
+        }
+
+        [HttpGet]
+        public ActionResult AddPvP()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddPvP(PvP newPvPStat)
+        {
+            try
+            {
+                if (ModelState.IsValid.Equals(true))
+                {
+
+                    newPvPStat.LastMatch = DateTime.Now;
+                    pvPTable.AddPvP(newPvPStat);
+                    return RedirectToAction("Index");
+                }
+                else
+                    {
+                        throw new Exception("Error view");
+                    }
+
+            }
+            catch
+            {
+                return View("Error");
+            }
         }
     }
 }
