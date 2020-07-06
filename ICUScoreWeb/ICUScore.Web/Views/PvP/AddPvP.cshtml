@@ -1,4 +1,4 @@
-﻿@model ICUScore.Data.Models.PvP
+﻿@model ICUScore.Web.Models.PvPViewModel
 @{
     ViewBag.Title = "Add PvP";
 }
@@ -8,39 +8,39 @@
 {
     @Html.AntiForgeryToken()
 <div class="form-horizontal">
-    <h4>Restaurant</h4>
+    <h4>PvP</h4>
     <hr />
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.pID, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.pID, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.pID, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
     <div class="form-group">
-        @Html.LabelFor(model => model.LastWinner, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.newPvP.pID, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.LastWinner, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.LastWinner, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.newPvP.pID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.newPvP.pID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+         @Html.LabelFor(model => model.listOfPlayers, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.listOfPlayers, new SelectList(Model.listOfPlayers))
+            @Html.ValidationMessageFor(model => model.listOfPlayers, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
 
-        @Html.LabelFor(model => model.gID, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.newPvP.gID, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.gID, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.gID, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.newPvP.gID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.newPvP.gID, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.OpponentName, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.newPvP.OpponentName, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.OpponentName, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.OpponentName, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.newPvP.OpponentName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.newPvP.OpponentName, "", new { @class = "text-danger" })
         </div>
     </div>
 
