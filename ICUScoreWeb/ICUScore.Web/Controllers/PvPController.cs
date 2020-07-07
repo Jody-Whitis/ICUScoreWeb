@@ -14,11 +14,13 @@ namespace ICUScore.Web.Controllers
     {
         InMemoryPlayerTable playerTable;
         InMemoryPvPTable pvPTable;
-
-        public PvPController(InMemoryPlayerTable playerTable,InMemoryPvPTable pvPTable)
+        InMemoryGamesTable gameTable;
+        
+        public PvPController(InMemoryPlayerTable playerTable,InMemoryPvPTable pvPTable, InMemoryGamesTable gamesTable)
         {
             this.playerTable = playerTable;
             this.pvPTable = pvPTable;
+            this.gameTable = gamesTable;
         }
 
         // GET: PvP
@@ -54,7 +56,8 @@ namespace ICUScore.Web.Controllers
         public ActionResult AddPvP()
         {
             PvPViewModel players = new PvPViewModel();
-            players.listOfPlayers = playerTable.GetAll().Select(p => p.Name); 
+            players.listOfPlayers = playerTable.GetAll().Select(p => p.Name);
+            players.listOfGames = gameTable.GetAll();
             return View(players);
         }
 

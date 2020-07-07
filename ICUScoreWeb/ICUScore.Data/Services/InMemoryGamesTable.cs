@@ -16,5 +16,10 @@ namespace ICUScore.Data.Services
             new Game { ID=3,Name="PvP"},new Game { ID=4,Name="SA2"},new Game { ID=5,Name="test"}
             };
         }
+
+        public IEnumerable<Game> GetAll()
+        {
+            return games.OrderBy(g => g.ID);
+        }
     }
 }

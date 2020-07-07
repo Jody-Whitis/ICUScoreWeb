@@ -13,5 +13,6 @@ namespace ICUScore.Web.Models
         public DateTime lastPlayedDate { get; set; }
         public PvP newPvP { get; set; }
         public IEnumerable<String> listOfPlayers {get;set;}
+        public IEnumerable<Game> listOfGames { get; set; }
      }
 }

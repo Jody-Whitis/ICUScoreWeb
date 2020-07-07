@@ -30,10 +30,10 @@
 
     <div class="form-group">
 
-        @Html.LabelFor(model => model.newPvP.gID, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.listOfGames.First().Name, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.newPvP.gID, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.newPvP.gID, "", new { @class = "text-danger" })
+            @Html.DropDownListFor(model => model.listOfGames, new SelectList(Model.listOfGames,"ID","Name"))
+            @Html.ValidationMessageFor(model => model.listOfGames, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
