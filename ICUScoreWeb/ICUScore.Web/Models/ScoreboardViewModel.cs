@@ -15,6 +15,7 @@ namespace ICUScore.Web.Models
         public int gID { get; set; }
         public int pID { get; set; }
         public String GameMode { get; set; }
+        public List<Game> listOfGames { get; set; }
 
     }
 }

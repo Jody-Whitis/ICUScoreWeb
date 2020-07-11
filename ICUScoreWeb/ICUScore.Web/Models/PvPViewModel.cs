@@ -11,7 +11,7 @@ namespace ICUScore.Web.Models
 {
     public class PvPViewModel
     {
-                  public string WinnerName { get; set; }
+         public string WinnerName { get; set; }
          public String OpponentName { get; set; }
          public DateTime lastPlayedDate { get; set; }
          public int gID { get; set; }

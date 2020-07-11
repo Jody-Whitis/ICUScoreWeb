@@ -32,7 +32,7 @@ namespace ICUScore.Web.Controllers
             IEnumerable<Game> games = gameTable.GetAll();
             try
             {
-                var scoreboard = from h in highScores
+                IEnumerable<ScoreboardViewModel> scoreboard = from h in highScores
                                  join p in players on h.pID equals p.ID
                                  join g in games on h.gID equals g.ID
                                  select new ScoreboardViewModel
@@ -42,7 +42,7 @@ namespace ICUScore.Web.Controllers
                                      GameMode = g.Name,
                                      lastScored = h.LastUpdated
                                  };
-                ViewBag.Title = "Scoreboard";
+                ViewBag.Title = "Scoreboard";              
                 return View(scoreboard);
             }
             catch
@@ -56,7 +56,10 @@ namespace ICUScore.Web.Controllers
         [HttpGet]
         public ActionResult AddScore()
         {
-            return View(); 
+            ScoreboardViewModel scoreboardViewModel = new ScoreboardViewModel();
+            IEnumerable<Game> games = gameTable.GetAll();
+            scoreboardViewModel.listOfGames = games.ToList();
+            return View(scoreboardViewModel); 
         }
 
         [HttpPost]
@@ -69,6 +72,7 @@ namespace ICUScore.Web.Controllers
                 if (ModelState.IsValid)
                 {
                     newHighscore.LastUpdated = DateTime.Now;
+                    newHighscore.pID = 1;
                     highscoreTable.AddScore(newHighscore);
                     return RedirectToAction("Index");
                 }
