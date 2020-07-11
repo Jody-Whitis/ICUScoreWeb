@@ -14,11 +14,13 @@ namespace ICUScore.Web.Controllers
     {
         InMemoryHighscoreTable highscoreTable;
         InMemoryPlayerTable playerTable;
+        InMemoryGamesTable gameTable;
 
-        public ScoreboardController(InMemoryHighscoreTable highscoreTable,InMemoryPlayerTable playerTable)
+        public ScoreboardController(InMemoryHighscoreTable highscoreTable,InMemoryPlayerTable playerTable,InMemoryGamesTable gameTable)
         {
             this.highscoreTable = highscoreTable;
             this.playerTable = playerTable;
+            this.gameTable = gameTable;
         }
 
         // GET: Scoreboard
@@ -27,15 +29,17 @@ namespace ICUScore.Web.Controllers
         {
             IEnumerable<HighScore> highScores = highscoreTable.GetAll();
             IEnumerable<Player> players = playerTable.GetAll();
-
+            IEnumerable<Game> games = gameTable.GetAll();
             try
             {
                 var scoreboard = from h in highScores
                                  join p in players on h.pID equals p.ID
+                                 join g in games on h.gID equals g.ID
                                  select new ScoreboardViewModel
                                  {
                                      Highscore = h.Highscore,
                                      PlayerName = p.Name,
+                                     GameMode = g.Name,
                                      lastScored = h.LastUpdated
                                  };
                 ViewBag.Title = "Scoreboard";

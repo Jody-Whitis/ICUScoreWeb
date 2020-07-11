@@ -69,7 +69,7 @@ namespace ICUScore.Web.Controllers
             {
                 if (ModelState.IsValid.Equals(true))
                 {
-
+                    newPvPStat.pID = 1;
                     newPvPStat.LastMatch = DateTime.Now;
                     pvPTable.AddPvP(newPvPStat);
                     return RedirectToAction("Index");

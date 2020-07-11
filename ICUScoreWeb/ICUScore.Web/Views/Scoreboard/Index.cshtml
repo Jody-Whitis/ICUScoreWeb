@@ -1,15 +1,17 @@
 ﻿@model IEnumerable<ICUScore.Web.Models.ScoreboardViewModel>
  
-<div class="jumbotron">
-    <p>Current Scores</p>
+ 
+<div class="jumbotron" style="background-color:lightblue;color:darkblue;margin-left:auto;margin-right:auto">
+    <div style="position:center;font-size:large">Current Scores for @DateTime.Now.ToShortDateString()</div> 
 </div>
 
 <div class="container">
-    <table class="table table-hover">
+    <table class="table table-hover"style="background-color:lightblue;color:darkblue">
         <thead>
             <tr>
                 <th>Player</th>
                 <th>Highscore</th>
+                <th>Game</th>
                 <th>Score Date</th>
             </tr>
         </thead>
@@ -20,11 +22,15 @@
                 <tr>
                     <td>@score.PlayerName</td>
                     <td>@score.Highscore</td>
+                    <td>@score.GameMode</td>
                     <td>@score.lastScored</td>
                 </tr>
             }
         </tbody>
     </table>
 
-   @Html.ActionLink("Add", "AddScore") 
+
+    @Html.ActionLink("Add", "AddScore")  
+
 </div>
+ 
