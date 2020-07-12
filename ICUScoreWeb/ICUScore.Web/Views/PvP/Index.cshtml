@@ -16,7 +16,7 @@
                 @foreach (var score in Model)
                 {
                     <tr>
-                        <td>@score.WinnerName beat @score.OpponentName on @score.lastPlayedDate.ToShortDateString()</td>
+                        <td>@score.WinnerName beat @score.OpponentName at @score.GameName on @score.lastPlayedDate.ToShortDateString()</td>
                     </tr>
                 }
             </tbody>

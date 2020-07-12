@@ -16,6 +16,7 @@ namespace ICUScore.Web.Models
          public DateTime lastPlayedDate { get; set; }
          public int gID { get; set; }
          public int pID { get; set; }
+        public string GameName { get; set; }
         public IEnumerable<Player> listOfPlayers {get;set;}
         public IEnumerable<Game> listOfGames { get; set; }
      }

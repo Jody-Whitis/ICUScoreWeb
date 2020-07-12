@@ -30,15 +30,17 @@ namespace ICUScore.Web.Controllers
 
             IEnumerable<PvP> pvpStats = pvPTable.GetAll();
             IEnumerable<Player> players = playerTable.GetAll();
-
+            IEnumerable<Game> games = gameTable.GetAll();
             try
             {
                 var pvpScoreboard = from s in pvpStats
                                  join p in players on s.pID equals p.ID
+                                 join g in games on s.gID equals g.ID
                                  select new PvPViewModel
                                  {
                                      WinnerName = p.Name,
                                      OpponentName = s.OpponentName,
+                                     GameName = g.Name,
                                      lastPlayedDate = s.LastMatch
  
                                  };

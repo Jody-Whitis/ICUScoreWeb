@@ -79,6 +79,7 @@
     <Compile Include="Services\InMemoryPlayerTable.cs" />
     <Compile Include="Services\InMemoryPvPTable.cs" />
     <Compile Include="Services\IScoreData.cs" />
+    <Compile Include="Services\Logging.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\package_games_arcade.ico" />
