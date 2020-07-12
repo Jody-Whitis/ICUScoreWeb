@@ -1,4 +1,5 @@
 ﻿using ICUScore.Data.Services;
+using ICUScore.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,25 @@ namespace ICUScore.Web.Controllers
             this.db = db;
         }
 
+        [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.title = "Home";
-            var model = db.GetAll();
-            return View(model);
+            
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(HomeViewModel userLogin)
+        {
+            if (ModelState.IsValid)
+            {
+                //Validate
+                return RedirectToAction("Index", "Scoreboard");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public ActionResult About()

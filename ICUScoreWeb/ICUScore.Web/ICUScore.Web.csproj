@@ -260,6 +260,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\PvPViewModel.cs" />
     <Compile Include="Models\ScoreboardViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
