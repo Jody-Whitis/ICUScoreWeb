@@ -10,6 +10,7 @@ namespace ICUScore.Data.Models
     public class Login
     {
         public int ID { get; set; }
+        public string Name { get; set; }
         public string EmailAddress { get; set; }
         public string Password { get; set; }
         public int Subscribed { get; set; }
