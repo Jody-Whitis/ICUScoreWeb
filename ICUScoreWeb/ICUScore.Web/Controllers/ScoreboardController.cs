@@ -54,6 +54,7 @@ namespace ICUScore.Web.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult AddScore()
         {
             ScoreboardViewModel scoreboardViewModel = new ScoreboardViewModel();
@@ -64,12 +65,12 @@ namespace ICUScore.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddScore(HighScore newHighscore)
+         public ActionResult AddScore(HighScore newHighscore)
         {
 
             try
             {
-                if (ModelState.IsValid)
+                if ((ModelState.IsValid) && (Session["sessionGUID"] != null))
                 {
                     newHighscore.LastUpdated = DateTime.Now;
                     newHighscore.pID = 1;
