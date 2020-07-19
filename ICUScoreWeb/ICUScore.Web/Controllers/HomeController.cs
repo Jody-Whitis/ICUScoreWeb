@@ -35,12 +35,22 @@ namespace ICUScore.Web.Controllers
                 //Validate
                 Login loginUser = new Login();
                 loginUser = lg.GetUser(userLogin.User, userLogin.Password).FirstOrDefault();
+               
+                if ((loginUser != null))
+                {
                 Session.Add("user", loginUser.EmailAddress);
                 Session.Add("name", loginUser.Name);
                 Session.Add("id", loginUser.ID);
-                Session.Add("sessionGUID", new Guid());
+                Session.Add("sessionGUID", Guid.NewGuid());
                
                 return RedirectToAction("Index", "Scoreboard");
+                }
+                else
+                {
+                    ModelState.AddModelError("login", "Login Incorrect");
+                    return View();
+                }
+              
             }
             else
             {
