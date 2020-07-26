@@ -14,6 +14,8 @@ namespace ICUScore.Web.Models
         [Required]
         public string Password { get; set; }
         public Login Login { get; set; }
+        public HighScore highScore { get; set; }
+        public PvP pvpStat { get; set; }
 
     }
 }

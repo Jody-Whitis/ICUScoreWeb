@@ -13,18 +13,49 @@ namespace ICUScore.Web.Controllers
     {
         InMemoryHighscoreTable db;
         InMemoryLoginTable lg;
+        InMemoryHighscoreTable hsTable;
+        InMemoryPvPTable plTable;
 
-        public HomeController(InMemoryHighscoreTable db, InMemoryLoginTable lg)
+        public HomeController(InMemoryHighscoreTable db, InMemoryLoginTable lg, InMemoryPvPTable plTable,InMemoryHighscoreTable hsTable)
         {
             this.db = db;
             this.lg = lg;
+            this.hsTable = hsTable;
+            this.plTable = plTable;
+        }
+
+        [HttpGet]
+        public ActionResult HomePage(HomeViewModel homeViewModel)
+        {
+            IEnumerable< HighScore> highScores = hsTable.GetAll() ;
+            IEnumerable< PvP> pvpStats = plTable.GetAll() ;
+
+            try
+            {
+                int iD =Convert.ToInt32( Session["id"]);
+                PvP userPVP = pvpStats.Where(p => p.ID == iD).FirstOrDefault();
+                HighScore userHS = highScores.Where(h => h.pID == iD).FirstOrDefault();
+                homeViewModel.highScore = userHS;
+                homeViewModel.pvpStat = userPVP;
+                return View(homeViewModel);
+            }
+            catch
+            {
+                return View("Error");
+            }
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            
-            return View();
+          if((Session.Keys.Count > 0) && (!string.IsNullOrEmpty(Session["sessionGUID"].ToString())))
+            {
+                return RedirectToAction("HomePage");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [HttpPost]

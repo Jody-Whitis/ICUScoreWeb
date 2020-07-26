@@ -1,0 +1,19 @@
+﻿@model ICUScore.Web.Models.HomeViewModel
+
+@{
+    ViewBag.Title = "Home";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<div class="container active">
+
+    <h1>Welcome </h1>
+    <h2>Your last PvP</h2>
+    @Model.pvpStat.LastMatch
+
+    <h2>Your last HS</h2>
+    @Model.highScore.Highscore
+</div> 
+
+ 
