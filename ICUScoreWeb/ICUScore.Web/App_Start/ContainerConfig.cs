@@ -18,6 +18,9 @@ namespace ICUScore.Web.App_Start
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
             builder.RegisterType<InMemoryPlayerTable>().SingleInstance();
             builder.RegisterType<InMemoryHighscoreTable>().SingleInstance();
+            builder.RegisterType<InMemoryPvPTable>().SingleInstance();
+            builder.RegisterType<InMemoryGamesTable>().SingleInstance();
+            builder.RegisterType<InMemoryLoginTable>().SingleInstance();
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }

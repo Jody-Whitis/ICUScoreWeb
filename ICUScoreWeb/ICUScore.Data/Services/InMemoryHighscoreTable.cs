@@ -19,7 +19,14 @@ namespace ICUScore.Data.Services
 
         public IEnumerable<HighScore> GetAll()
         {
-            return highScores.OrderBy(s => s.Highscore);
+            return highScores.OrderByDescending(s => s.Highscore);
+        }
+
+        public void AddScore(HighScore highScore)
+        {
+            highScores.Add(highScore);
+            //in memory db
+            highScore.ID = highScores.Max(h => h.ID) + 1;
         }
     }
 }

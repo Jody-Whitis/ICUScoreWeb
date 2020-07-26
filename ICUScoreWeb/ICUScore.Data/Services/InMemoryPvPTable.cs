@@ -12,7 +12,19 @@ namespace ICUScore.Data.Services
         List<PvP> pvp;
         public InMemoryPvPTable()
         {
-            pvp = new List<PvP> { new PvP {ID=1 , pID = 1,opponentID=2,LastWinner="Jody",LastMatch = DateTime.Now,Win=2} };
+            pvp = new List<PvP> { new PvP {ID=1 , pID = 1,OpponentName="Test",LastWinner="Jody",LastMatch = DateTime.Now,Win=2} };
+        }
+
+        public IEnumerable<PvP> GetAll()
+        {
+            return pvp.OrderBy(r => r.LastMatch);
+        }
+
+        public void AddPvP(PvP newPvP)
+        {
+            pvp.Add(newPvP);
+            newPvP.ID = pvp.Max(p => p.ID) + 1;
+
         }
     }
 }

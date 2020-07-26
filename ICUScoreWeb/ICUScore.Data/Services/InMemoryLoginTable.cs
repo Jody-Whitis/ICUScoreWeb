@@ -16,5 +16,10 @@ namespace ICUScore.Data.Services
             };
         }
 
+        public IEnumerable<Login> GetUser(string user, string password)
+        {
+            return logins.Where(l => l.EmailAddress == user && l.Password == password).Distinct();
+        }
+
     }
 }

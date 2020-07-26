@@ -1,19 +1,36 @@
-﻿@model ICUScore.Web.Models.ScoreboardViewModel
+﻿@model IEnumerable<ICUScore.Web.Models.ScoreboardViewModel>
+ 
+ 
+<div class="jumbotron" style="background-color:lightblue;color:darkblue;margin-left:auto;margin-right:auto">
+    <div style="position:center;font-size:large">Current Scores for @DateTime.Now.ToShortDateString()</div> 
+</div>
 
-@{
-    ViewBag.Title = "Index";
-}
+<div class="container">
+    <table class="table table-hover"style="background-color:lightblue;color:darkblue">
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Highscore</th>
+                <th>Game</th>
+                <th>Score Date</th>
+            </tr>
+        </thead>
 
-<h2>Index</h2>
+        <tbody>
+            @foreach (var score in Model)
+            {
+                <tr>
+                    <td>@score.PlayerName</td>
+                    <td>@score.Highscore</td>
+                    <td>@score.GameMode</td>
+                    <td>@score.lastScored</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
-<div>
-    <h4>ScoreboardViewModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-           @Model.PlayerID
-        </dt>
 
-    </dl>
+    @Html.ActionLink("Add", "AddScore")  
+
 </div>
  

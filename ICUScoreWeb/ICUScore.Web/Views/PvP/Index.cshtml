@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ICUScore.Web.Models.PvPViewModel>
+
+    <div class="jumbotron" style="background-color:lightblue;color:darkblue;margin-left:auto;margin-right:auto">
+        <p>PvP Stats</p>
+    </div>
+
+    <div class="container">
+        <table class="table table-hover" style="background-color:lightblue;color:darkblue">
+            <thead>
+                <tr>
+                    <th>PvP Stats</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var score in Model)
+                {
+                    <tr>
+                        <td>@score.WinnerName beat @score.OpponentName at @score.GameName on @score.lastPlayedDate.ToShortDateString()</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @Html.ActionLink("Add", "AddPvP")
+    </div>

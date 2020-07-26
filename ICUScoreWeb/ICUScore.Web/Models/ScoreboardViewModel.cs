@@ -8,9 +8,14 @@ namespace ICUScore.Web.Models
 {
     public class ScoreboardViewModel
     {
-        public IEnumerable<HighScore> highScores { get; set; }
- 
+        public string PlayerName { get; set; }
+        public double Highscore { get; set; }
+        public DateTime lastScored { get; set; }
         public int PlayerID { get; set; }
+        public int gID { get; set; }
+        public int pID { get; set; }
+        public String GameMode { get; set; }
+        public List<Game> listOfGames { get; set; }
 
     }
 }
