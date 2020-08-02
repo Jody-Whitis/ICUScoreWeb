@@ -255,12 +255,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="Controllers\PvPController.cs" />
     <Compile Include="Controllers\ScoreboardController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\HomeViewModel.cs" />
+    <Compile Include="Models\PlayerViewModel.cs" />
     <Compile Include="Models\PvPViewModel.cs" />
     <Compile Include="Models\ScoreboardViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -305,10 +307,12 @@
     <Content Include="Views\PvP\Index.cshtml" />
     <Content Include="Views\Scoreboard\AddScore.cshtml" />
     <Content Include="Views\PvP\AddPvP.cshtml" />
+    <Content Include="Views\Player\NewPlayer.cshtml" />
+    <Content Include="Views\Player\Index.cshtml" />
+    <Content Include="Views\Player\EditPlayer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Player\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -17,6 +17,18 @@ namespace ICUScore.Data.Services
             };
         }
             
+        public void AddNewPlayer(Player newPlayer)
+        {
+            players.Add(newPlayer);
+            newPlayer.ID = players.Max(p => p.ID) + 1;
+        }
+
+        public void EditPlayer(int id,string name)
+        {
+            Player selectedPlayer = players.Where(p => p.ID == id).FirstOrDefault();
+            selectedPlayer.Name = name;
+        }
+
          public IEnumerable<Player> GetAll()
         {
             return players.OrderBy(r => r.Name);
