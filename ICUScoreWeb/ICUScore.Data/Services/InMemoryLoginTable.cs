@@ -21,5 +21,11 @@ namespace ICUScore.Data.Services
             return logins.Where(l => l.EmailAddress == user && l.Password == password).Distinct();
         }
 
+        public void AddNewUser(Login loginUser)
+        {
+            logins.Add(loginUser);
+            loginUser.ID = logins.Max(l => l.ID) + 1;
+        }
+
     }
 }

@@ -34,6 +34,19 @@ namespace ICUScore.Data.Services
             return players.OrderBy(r => r.Name);
         }
 
+        public IEnumerable<Player> GetAllRegistered(Boolean isRegistered)
+        {
+            int isRegisteredBit = Convert.ToInt32(isRegistered);
+            return players.Where(p => p.Registered == isRegisteredBit);
+        }
+
+        public void RegisterPlayer(int id)
+        {
+            Player registerPlayer = players.Where(p => p.ID == id).FirstOrDefault();
+            registerPlayer.Registered = 1;
+            registerPlayer.RegistrationDate = DateTime.Now;
+        }
+
      //Update wins or add new one;
     }
 }

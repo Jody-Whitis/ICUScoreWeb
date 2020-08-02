@@ -1,17 +1,11 @@
 ﻿@model ICUScore.Web.Models.PlayerViewModel
 
 @{
-    Layout = null;
+    ViewBag.Title = "Edit Player";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>EditPlayerName</title>
-</head>
-<body>
+<h2>Edit Player</h2>
+ 
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -47,5 +41,4 @@
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>
-</body>
-</html>
+ 
