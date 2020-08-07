@@ -312,7 +312,8 @@
     <Content Include="Views\Player\NewPlayer.cshtml" />
     <Content Include="Views\Player\Index.cshtml" />
     <Content Include="Views\Player\EditPlayer.cshtml" />
-    <Content Include="Views\Login\NewLogin.cshtml" />
+    <Content Include="Views\Login\RegisterLogin.cshtml" />
+    <Content Include="Views\Login\UnRegisterLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -47,6 +47,13 @@ namespace ICUScore.Data.Services
             registerPlayer.RegistrationDate = DateTime.Now;
         }
 
+        public void UnRegisterPlayer(int id)
+        {
+            Player unregisteredPlayer = players.Where(p => p.ID == id).FirstOrDefault();
+            unregisteredPlayer.Registered = 0;
+            unregisteredPlayer.RegistrationDate = null;
+        }
+
      //Update wins or add new one;
     }
 }

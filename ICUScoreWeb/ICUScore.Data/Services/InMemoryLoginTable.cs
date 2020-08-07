@@ -21,10 +21,20 @@ namespace ICUScore.Data.Services
             return logins.Where(l => l.EmailAddress == user && l.Password == password).Distinct();
         }
 
+        public Login SelectUser(int id)
+        {
+            return logins.Where(l => l.ID == id).FirstOrDefault();
+        }
+
         public void AddNewUser(Login loginUser)
         {
             logins.Add(loginUser);
             loginUser.ID = logins.Max(l => l.ID) + 1;
+        }
+
+        public void UnregisterUser(Login loginUser)
+        {
+            logins.Remove(loginUser);
         }
 
     }

@@ -16,7 +16,7 @@ namespace ICUScore.Web.Controllers
         InMemoryLoginTable loginTable;
         InMemoryPlayerTable playerTable;
 
-        public LoginController(InMemoryLoginTable loginTable,InMemoryPlayerTable playerTable)
+        public LoginController(InMemoryLoginTable loginTable, InMemoryPlayerTable playerTable)
         {
             this.loginTable = loginTable;
             this.playerTable = playerTable;
@@ -29,7 +29,7 @@ namespace ICUScore.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult NewLogin(LoginViewModel loginViewModel)
+        public ActionResult RegisterLogin(LoginViewModel loginViewModel)
         {
             try
             {
@@ -38,22 +38,26 @@ namespace ICUScore.Web.Controllers
             }
             catch
             {
-            return View("Error");
+                return View("Error");
             }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult NewLogin(Data.Models.Login newLogin)
+        public ActionResult RegisterLogin(Data.Models.Login registerLogin)
         {
             try
             {
                 List<Player> players = playerTable.GetAllRegistered(false).ToList();
-                if(players.Where(p => p.ID == newLogin.pID).Any())
+                registerLogin.Password = "test";
+                //populate name from list
+                registerLogin.Name = players.Where(p => p.ID == registerLogin.pID).Select(p => p.Name).FirstOrDefault();
+                registerLogin.EmailAddress = registerLogin.Name + "@test.com";
+                if (players.Where(p => p.ID == registerLogin.pID).Any())
                 {
-                    playerTable.RegisterPlayer(newLogin.pID);
+                    playerTable.RegisterPlayer(registerLogin.pID);
                 }
-                loginTable.AddNewUser(newLogin);
+                loginTable.AddNewUser(registerLogin);
                 return RedirectToAction("Index", "Scoreboard");
             }
             catch
@@ -62,5 +66,40 @@ namespace ICUScore.Web.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult UnRegisterLogin(LoginViewModel loginViewModel)
+        {
+            if ((Session.Keys.Count > 0) && (!string.IsNullOrEmpty(Session["sessionGUID"].ToString())))
+            {
+                Data.Models.Login loginUserProfile = loginTable.SelectUser(Convert.ToInt32(Session["id"]));
+                loginViewModel.login = loginUserProfile;
+                return View(loginViewModel);
+            }
+            else
+            {
+                return View("Error");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UnRegisterLogin(Data.Models.Login unRegisterLogin)
+        {
+            if ((Session.Keys.Count > 0) && (!string.IsNullOrEmpty(Session["sessionGUID"].ToString())))
+            {
+                Int32 loginID = Convert.ToInt32(Session["id"]);
+                Data.Models.Login login = loginTable.SelectUser(loginID);
+                Int32 playerID = login.pID;
+                //Delete from Logins
+                loginTable.UnregisterUser(login);
+                //Set the registered bit to 0 in Players
+                playerTable.UnRegisterPlayer(playerID);
+                return RedirectToAction("Logout", "Home");
+            }
+            else
+            {
+                throw new Exception("Session ID not found");
+            }
+        }
     }
 }
