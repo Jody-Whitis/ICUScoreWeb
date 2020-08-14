@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using ICUScore.Data.Models;
 using ICUScore.Data.Services;
 using ICUScore.Web.Models;
+using ICUScore.Web.Services;
 
 namespace ICUScore.Web.Controllers
 {
@@ -25,6 +26,7 @@ namespace ICUScore.Web.Controllers
         }
 
         [HttpGet]
+        [UserAuthentication]
         public ActionResult NewPlayer()
         {
             return View();
@@ -32,6 +34,7 @@ namespace ICUScore.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [UserAuthentication]
         public ActionResult NewPlayer(Player newPlayer)
         {
             try
@@ -48,6 +51,7 @@ namespace ICUScore.Web.Controllers
         }
 
         [HttpGet]
+        [UserAuthentication]
         public ActionResult EditPlayer(PlayerViewModel playerViewModel)
         {
             try
@@ -65,6 +69,7 @@ namespace ICUScore.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [UserAuthentication]
         public ActionResult EditPlayer(int id, string name)
         {
             try

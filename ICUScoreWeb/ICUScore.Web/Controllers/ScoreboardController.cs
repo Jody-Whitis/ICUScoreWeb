@@ -1,6 +1,7 @@
 ﻿using ICUScore.Data.Models;
 using ICUScore.Data.Services;
 using ICUScore.Web.Models;
+using ICUScore.Web.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,7 +55,7 @@ namespace ICUScore.Web.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
+        [UserAuthentication]
         public ActionResult AddScore()
         {
             ScoreboardViewModel scoreboardViewModel = new ScoreboardViewModel();
@@ -65,7 +66,8 @@ namespace ICUScore.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-         public ActionResult AddScore(HighScore newHighscore)
+        [UserAuthentication]
+        public ActionResult AddScore(HighScore newHighscore)
         {
 
             try

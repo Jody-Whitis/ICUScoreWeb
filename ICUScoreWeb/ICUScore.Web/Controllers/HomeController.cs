@@ -1,6 +1,7 @@
 ﻿using ICUScore.Data.Models;
 using ICUScore.Data.Services;
 using ICUScore.Web.Models;
+using ICUScore.Web.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,7 @@ namespace ICUScore.Web.Controllers
         }
 
         [HttpGet]
+        [UserAuthentication]
         public ActionResult HomePage(HomeViewModel homeViewModel)
         {
             IEnumerable< HighScore> highScores = hsTable.GetAll() ;

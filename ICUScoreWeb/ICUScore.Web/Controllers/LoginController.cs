@@ -8,9 +8,11 @@ using System.Web.UI.WebControls.Expressions;
 using ICUScore.Data.Models;
 using ICUScore.Data.Services;
 using ICUScore.Web.Models;
+using ICUScore.Web.Services;
 
 namespace ICUScore.Web.Controllers
 {
+    [UserAuthentication]
     public class LoginController : Controller
     {
         InMemoryLoginTable loginTable;
