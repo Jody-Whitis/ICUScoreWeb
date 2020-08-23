@@ -315,6 +315,7 @@
     <Content Include="Views\Player\EditPlayer.cshtml" />
     <Content Include="Views\Login\RegisterLogin.cshtml" />
     <Content Include="Views\Login\UnRegisterLogin.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

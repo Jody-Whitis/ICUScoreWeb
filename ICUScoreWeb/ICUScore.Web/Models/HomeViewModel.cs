@@ -13,6 +13,7 @@ namespace ICUScore.Web.Models
         public string User { get; set; }
         [Required]
         public string Password { get; set; }
+        public string Name { get; set; }
         public Login Login { get; set; }
         public HighScore highScore { get; set; }
         public PvP pvpStat { get; set; }

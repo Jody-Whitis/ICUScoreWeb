@@ -7,13 +7,20 @@
 <h3>@ViewBag.Message</h3>
 
 <div class="container active">
+    <div class="container">
+        <table class="table table-hover" style="background-color:lightblue;color:darkblue">
+            <thead>
+                <tr>
+                    <th>Welcome @Model.Name</th>
+                </tr>
+                <tr>
+                    <th>Your last PvP Match</th> <th>@Model.pvpStat.LastMatch</th>
+                </tr>
+                <tr>
+                    <th>Your Best HS</th><th> @Model.highScore.Highscore</th>
+                </tr>
+            </thead>
+        </table>        
+    </div>
+    </div>
 
-    <h1>Welcome </h1>
-    <h2>Your last PvP</h2>
-    @Model.pvpStat.LastMatch
-
-    <h2>Your last HS</h2>
-    @Model.highScore.Highscore
-</div> 
-
- 

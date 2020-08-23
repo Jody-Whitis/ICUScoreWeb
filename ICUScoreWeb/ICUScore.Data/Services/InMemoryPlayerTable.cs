@@ -54,6 +54,10 @@ namespace ICUScore.Data.Services
             unregisteredPlayer.RegistrationDate = null;
         }
 
+        public Player GetPlayer(int id)
+        { 
+          return  players.Where(p => p.ID == id).FirstOrDefault();            
+        }
      //Update wins or add new one;
     }
 }
