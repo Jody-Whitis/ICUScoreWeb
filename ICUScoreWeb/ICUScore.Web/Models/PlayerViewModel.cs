@@ -7,16 +7,15 @@ using System.Web;
 
 namespace ICUScore.Web.Models
 {
-    public class HomeViewModel
+    public class PlayerViewModel
     {
         [Required]
-        public string User { get; set; }
-        [Required]
-        public string Password { get; set; }
         public string Name { get; set; }
-        public Login Login { get; set; }
-        public HighScore highScore { get; set; }
-        public PvP pvpStat { get; set; }
 
+        public Player player { get; set; }
+
+        public int Id { get; set; }
+
+        public IEnumerable<Player> listOfPlayers { get; set; }
     }
 }

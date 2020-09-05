@@ -1,6 +1,7 @@
 ﻿using ICUScore.Data.Models;
 using ICUScore.Data.Services;
 using ICUScore.Web.Models;
+using ICUScore.Web.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,6 +56,7 @@ namespace ICUScore.Web.Controllers
         }
 
         [HttpGet]
+        [UserAuthentication]
         public ActionResult AddPvP()
         {
             PvPViewModel players = new PvPViewModel();
@@ -65,6 +67,7 @@ namespace ICUScore.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [UserAuthentication]
         public ActionResult AddPvP(PvP newPvPStat)
         {
             try
