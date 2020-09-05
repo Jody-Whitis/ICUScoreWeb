@@ -72,23 +72,24 @@ namespace ICUScore.Web.Controllers
                 Login loginUser = new Login();
                 loginUser = lg.GetUser(userLogin.User, userLogin.Password).FirstOrDefault();
                 Player playerRegistered = new Player();
-                playerRegistered = playerTable.GetPlayer(loginUser.pID);
-               
+
+
                 if ((loginUser != null))
                 {
-                Session.Add("user", loginUser.EmailAddress);
-                Session.Add("name", playerRegistered.Name);
-                Session.Add("id", loginUser.ID);
-                Session.Add("sessionGUID", Guid.NewGuid());
-               
-                return RedirectToAction("Index", "Scoreboard");
+                    playerRegistered = playerTable.GetPlayer(loginUser.pID);
+                    Session.Add("user", loginUser.EmailAddress);
+                    Session.Add("name", playerRegistered.Name);
+                    Session.Add("id", loginUser.ID);
+                    Session.Add("sessionGUID", Guid.NewGuid());
+
+                    return RedirectToAction("Index", "Scoreboard");
                 }
                 else
                 {
                     ModelState.AddModelError("login", "Login Incorrect");
                     return View();
                 }
-              
+
             }
             else
             {

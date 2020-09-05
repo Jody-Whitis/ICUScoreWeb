@@ -21,5 +21,10 @@
                 }
             </tbody>
         </table>
-        @Html.ActionLink("Add", "AddPvP")
+
+        @if ((Session.Count > 0) && (!String.IsNullOrEmpty(Convert.ToString(Session["sessionGUID"]))))
+        {
+            @Html.ActionLink("Add", "AddPvP")
+        }
+
     </div>

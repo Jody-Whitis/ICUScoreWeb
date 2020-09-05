@@ -23,8 +23,11 @@
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @style = "color:aquamarine;" })</li>
                     <li>@Html.ActionLink("PvP", "Index", "PvP", new { area = "" }, new { @style = "color:aquamarine;" })</li>
                     <li>@Html.ActionLink("Scoreboard", "Index", "Scoreboard", new { area = "" }, new { @style = "color:aquamarine;" })</li>
-                    <li>@Html.ActionLink("Login", "Index", "Login", new { area = "" }, new { @style = "color:aquamarine;" })</li>
-                    <li>@Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @style = "color:aquamarine;" })</li>
+                    @if ((Session.Keys.Count > 0) && (!String.IsNullOrWhiteSpace(Convert.ToString(Session["sessionGUID"]))))
+                    {
+                        <li>@Html.ActionLink("Registration", "Index", "Login", new { area = "" }, new { @style = "color:aquamarine;" })</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @style = "color:aquamarine;" })</li>
+                    }
                 </ul>
             </div>
         </div>
