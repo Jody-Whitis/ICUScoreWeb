@@ -29,9 +29,16 @@ namespace ICUScore.Data.Services
             selectedPlayer.Name = name;
         }
 
-         public IEnumerable<Player> GetAll()
+         public IEnumerable<Player> GetAll(int playerID = -1)
         {
-            return players.OrderBy(r => r.Name);
+            if ((playerID > -1) && (players.Any(x => x.ID == playerID)))
+            {
+                return players.Where(x => x.ID != playerID).OrderBy(r => r.Name);
+            }
+            else
+            {
+                return players.OrderBy(r => r.Name);
+            }
         }
 
         public IEnumerable<Player> GetAllRegistered(Boolean isRegistered)

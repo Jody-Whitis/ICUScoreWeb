@@ -60,7 +60,7 @@ namespace ICUScore.Web.Controllers
         public ActionResult AddPvP()
         {
             PvPViewModel players = new PvPViewModel();
-            players.listOfPlayers = playerTable.GetAll();
+            players.listOfPlayers = playerTable.GetAll(Convert.ToInt32(Session["playerID"]));
             players.listOfGames = gameTable.GetAll();
             return View(players);
         }

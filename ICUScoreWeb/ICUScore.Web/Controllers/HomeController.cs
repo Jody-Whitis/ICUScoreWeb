@@ -80,6 +80,7 @@ namespace ICUScore.Web.Controllers
                     Session.Add("user", loginUser.EmailAddress);
                     Session.Add("name", playerRegistered.Name);
                     Session.Add("id", loginUser.ID);
+                    Session.Add("playerID", loginUser.pID);
                     Session.Add("sessionGUID", Guid.NewGuid());
 
                     return RedirectToAction("Index", "Scoreboard");
