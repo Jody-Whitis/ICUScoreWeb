@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "Charts";
+}
+
+ @*<script type="text/javascript">
+         function GenerateRuntimeGraph() {
+             $.ajax({
+                 type: "POST",
+                 url: "@Url.Action("NewChart", "Chart")",
+                 contentType: "application/json;",
+                 dataType: "json",
+                 success: function (chData) {
+                    var aData = chData;
+                    var aLabels = aData[0];
+                    var aDatasets1 = aData[1];
+                    var dataT = {
+                        labels: aLabels,
+                        datasets: [{
+                            label: "Test Data",
+                            data: aDatasets1,
+                            fill: false,
+                            backgroundColor: ["rgba(54, 162, 235, 0.2)", "rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)"],
+                            borderColor: ["rgb(54, 162, 235)", "rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(153, 102, 255)", "rgb(201, 203, 207)"],
+                            borderWidth: 1
+                        }]
+                    };
+                    var ctx = $("#myChart").get(0).getContext("2d");
+                    var myNewChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: dataT,
+                        options: {
+                            responsive: true,
+                            title: { display: true, text: 'CHART.JS DEMO CHART' },
+                            legend: { position: 'bottom' },
+                            scales: {
+                                xAxes: [{ gridLines: { display: false }, display: true, scaleLabel: { display: false, labelString: '' } }],
+                                yAxes: [{ gridLines: { display: false }, display: true, scaleLabel: { display: false, labelString: '' }, ticks: { stepSize: 50, beginAtZero: true } }]
+                            },
+                        }
+                    });
+                }
+            });
+
+
+            $(document).ready(function () {
+                $(window).resize(setTimeout(GenerateRuntimeGraph,500));
+                GenerateRuntimeGraph();
+            });
+
+
+
+        };
+    </script>*@
+<head>
+
+    <script src="~/Scripts/Chart.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+
+<h2>Chart</h2>
+
+<body>
+
+    <div id="chartContainer" Style="font-family: Corbel; font-size: small ;text-align:center " class="row">
+                        <canvas id="myChart" width="400" height="400"></canvas>            
+    </div>
+
+    <script>
+        var rep = @Html.Raw(Json.Encode(ViewBag.ChartData));
+        var labelss = rep[0] ;
+        var datas = rep[1] ;
+        var ctx = $("#myChart");
+        var barC = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labelss,
+                datasets: [{
+                    label: "Charts",
+                    data: datas,
+                    backgroundColor: ["rgba(54, 162, 235, 0.2)", "rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)"],
+                    borderColor: ["rgb(54, 162, 235)", "rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(153, 102, 255)", "rgb(201, 203, 207)"],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: { xAxes: [{ ticks: { beginAtZero: true } }] },
+                legend: {display:false},
+            },
+
+
+        });
+
+    </script>
+
+</body>
+
