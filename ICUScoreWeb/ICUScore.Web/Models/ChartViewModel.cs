@@ -9,6 +9,7 @@ namespace ICUScore.Web.Models
     {
         public string Name { get; set; }
         public double Highscore { get; set; }
+        public string GameType { get; set; }
 
     }
 }
