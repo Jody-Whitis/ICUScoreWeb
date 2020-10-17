@@ -25,7 +25,7 @@
         var gameType = rep[2];
         var ctx = $("#myChart");
         var barC = new Chart(ctx, {
-            type: 'bar',
+            type: 'horizontalBar',
             data: {
                 labels: labelss,
                 datasets: [{
@@ -40,7 +40,7 @@
             },
             options: {
                 maintainAspectRatio: false,
-                scales: { xAxes: [{ ticks: { beginAtZero: true } }] },
+                scales: { yAxes: [{ ticks: { beginAtZero: true } }] },
                 legend: {display:false},
             },
         });
