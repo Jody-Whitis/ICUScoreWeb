@@ -10,7 +10,7 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 
-<h2>Chart</h2>
+<h2>Top High Scores</h2>
 
 <body>
 
@@ -40,7 +40,7 @@
             },
             options: {
                 maintainAspectRatio: false,
-                scales: { yAxes: [{ ticks: { beginAtZero: true } }] },
+                scales: { yAxes: [{ ticks: { beginAtZero: true , stepSize: 1} }] },
                 legend: {display:false},
             },
         });

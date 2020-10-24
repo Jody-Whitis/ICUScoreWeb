@@ -322,7 +322,9 @@
     <Content Include="Views\Login\RegisterLogin.cshtml" />
     <Content Include="Views\Login\UnRegisterLogin.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\Chart\Chart.cshtml" />
+    <Content Include="Views\Chart\Highscores.cshtml" />
+    <Content Include="Views\Chart\PvP.cshtml" />
+    <Content Include="Views\Chart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
