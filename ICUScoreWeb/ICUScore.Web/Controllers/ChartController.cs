@@ -15,15 +15,26 @@ namespace ICUScore.Web.Controllers
         InMemoryHighscoreTable hsTable;
         InMemoryPlayerTable pTable;
         InMemoryGamesTable gTable;
-        public ChartController(InMemoryPlayerTable inMemoryPlayerTable, InMemoryHighscoreTable inMemoryHighscoreTable, InMemoryGamesTable inMemoryGamesTable)
+        InMemoryPvPTable pvpTable;
+
+        public ChartController(InMemoryPlayerTable inMemoryPlayerTable, InMemoryHighscoreTable inMemoryHighscoreTable, 
+            InMemoryGamesTable inMemoryGamesTable,InMemoryPvPTable inMemoryPvPTable)
         {
             this.hsTable = inMemoryHighscoreTable;
             this.pTable = inMemoryPlayerTable;
             this.gTable = inMemoryGamesTable;
+            this.pvpTable = inMemoryPvPTable;
+        }
+
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View();
         }
 
         // GET: Chart
-        public ActionResult Index(int gID = -1)
+        [HttpGet]
+        public ActionResult Highscores(int gID = -1)
         {
             IEnumerable<HighScore> highScores = new List<HighScore>();
             IEnumerable<Player> players = new List<Player>();
@@ -48,7 +59,7 @@ namespace ICUScore.Web.Controllers
             idata = GetListData(scoreBoard);
 
             ViewBag.ChartData = idata.ToArray();
-            return View("~/Views/Chart/Chart.cshtml");
+            return View();
         }
 
         [HttpPost]
@@ -78,6 +89,29 @@ namespace ICUScore.Web.Controllers
             ViewBag.ChartData = idata.ToArray();
             return Json(idata, JsonRequestBehavior.AllowGet);
 
+        }
+
+        [HttpGet]
+        public ActionResult PvP()
+        {
+            IEnumerable<Player> players = new List<Player>();
+            List<object> idata = new List<object>();
+
+            players = pTable.GetAll();
+            
+
+            IEnumerable<ChartViewModel> scoreBoard = (from p in players
+                                                      select new ChartViewModel
+                                                      {
+                                                          Name = p.Name,
+                                                          Highscore = p.Wins,
+                                                          GameType = "PvP"
+
+                                                      });
+            idata = GetListData(scoreBoard);
+
+            ViewBag.ChartData = idata.ToArray();
+            return View();
         }
 
         protected List<object> GetListData(IEnumerable<ChartViewModel> scoreBoard)

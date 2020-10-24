@@ -74,9 +74,23 @@ namespace ICUScore.Web.Controllers
             {
                 if (ModelState.IsValid.Equals(true))
                 {
+                    PvP existingPvP = new PvP();
+
                     newPvPStat.pID = Convert.ToInt32(Session["playerID"]);
                     newPvPStat.LastMatch = DateTime.Now;
-                    pvPTable.AddPvP(newPvPStat);
+
+                    existingPvP = pvPTable.SelectPvP(newPvPStat);
+
+                    if ((existingPvP != null) && (existingPvP.ID > 0))
+                    {
+                        pvPTable.UpdatePvP(newPvPStat);
+                    }
+                    else
+                    {
+                        pvPTable.AddPvP(newPvPStat);
+                    }
+
+                    playerTable.UpdateWins(newPvPStat.pID);
                     return RedirectToAction("Index");
                 }
                 else

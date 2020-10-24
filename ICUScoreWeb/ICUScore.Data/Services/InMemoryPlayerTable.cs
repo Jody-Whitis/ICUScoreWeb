@@ -66,5 +66,11 @@ namespace ICUScore.Data.Services
           return  players.Where(p => p.ID == id).FirstOrDefault();            
         }
      //Update wins or add new one;
+
+        public void UpdateWins(int id)
+        {
+            Player player = players.Where(p => p.ID == id).FirstOrDefault();
+            player.Wins += 1;
+        }
     }
 }
