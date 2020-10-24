@@ -26,6 +26,10 @@ namespace ICUScore.Web.Controllers
             this.pvpTable = inMemoryPvPTable;
         }
 
+        /// <summary>
+        /// Contain links to the PVP and Highscores Charts
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult Index()
         {
@@ -33,6 +37,12 @@ namespace ICUScore.Web.Controllers
         }
 
         // GET: Chart
+        /// <summary>
+        /// Chart to get by GameID, if non is pass it will return data from all game types,
+        /// into the chart.
+        /// </summary>
+        /// <param name="gID"></param>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult Highscores(int gID = -1)
         {
@@ -91,6 +101,10 @@ namespace ICUScore.Web.Controllers
 
         }
 
+        /// <summary>
+        /// Returns total wins from PvP
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult PvP()
         {
@@ -114,6 +128,12 @@ namespace ICUScore.Web.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Takes the ChartViewModel and converts it into a datatable,
+        /// then we add them into a list to return into a Viewbag for the chart building in jquery var.
+        /// </summary>
+        /// <param name="scoreBoard"></param>
+        /// <returns></returns>
         protected List<object> GetListData(IEnumerable<ChartViewModel> scoreBoard)
         {
             List<object> idata = new List<object>();

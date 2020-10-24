@@ -30,6 +30,11 @@ namespace ICUScore.Web.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Register a player name to a login account
+        /// </summary>
+        /// <param name="loginViewModel"></param>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult RegisterLogin(LoginViewModel loginViewModel)
         {
@@ -44,6 +49,11 @@ namespace ICUScore.Web.Controllers
             }
         }
 
+        /// <summary>
+        /// Hard-coded email and pass word for testing registration
+        /// </summary>
+        /// <param name="registerLogin"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult RegisterLogin(Data.Models.Login registerLogin)
@@ -68,6 +78,12 @@ namespace ICUScore.Web.Controllers
             }
         }
 
+        /// <summary>
+        /// Delete from the logins table, unregisters name to a login account
+        /// set registration bit to 0
+        /// </summary>
+        /// <param name="loginViewModel"></param>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult UnRegisterLogin(LoginViewModel loginViewModel)
         {

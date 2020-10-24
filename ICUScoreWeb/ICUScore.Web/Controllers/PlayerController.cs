@@ -32,6 +32,11 @@ namespace ICUScore.Web.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Add a new player name
+        /// </summary>
+        /// <param name="newPlayer"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         [UserAuthentication]
@@ -57,16 +62,22 @@ namespace ICUScore.Web.Controllers
             try
             {
                 IEnumerable<Player> listOfPlayers = _playerTable.GetAll();
-            playerViewModel.listOfPlayers = listOfPlayers;
-            return View(playerViewModel);
+                playerViewModel.listOfPlayers = listOfPlayers;
+                return View(playerViewModel);
             }
             catch
             {
                 return View("Error");
             }
-           
+
         }
 
+        /// <summary>
+        /// Update player name
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         [UserAuthentication]

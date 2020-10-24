@@ -55,6 +55,10 @@ namespace ICUScore.Web.Controllers
 
         }
 
+        /// <summary>
+        /// List all the PvP recent stats
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [UserAuthentication]
         public ActionResult AddPvP()
@@ -65,6 +69,11 @@ namespace ICUScore.Web.Controllers
             return View(players);
         }
 
+        /// <summary>
+        /// Add new PVP win with the user's playerID
+        /// </summary>
+        /// <param name="newPvPStat"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         [UserAuthentication]
@@ -78,18 +87,7 @@ namespace ICUScore.Web.Controllers
 
                     newPvPStat.pID = Convert.ToInt32(Session["playerID"]);
                     newPvPStat.LastMatch = DateTime.Now;
-
-                    existingPvP = pvPTable.SelectPvP(newPvPStat);
-
-                    if ((existingPvP != null) && (existingPvP.ID > 0))
-                    {
-                        pvPTable.UpdatePvP(newPvPStat);
-                    }
-                    else
-                    {
-                        pvPTable.AddPvP(newPvPStat);
-                    }
-
+                    pvPTable.AddPvP(newPvPStat);
                     playerTable.UpdateWins(newPvPStat.pID);
                     return RedirectToAction("Index");
                 }
