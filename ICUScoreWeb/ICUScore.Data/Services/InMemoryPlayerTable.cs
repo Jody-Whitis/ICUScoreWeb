@@ -72,5 +72,10 @@ namespace ICUScore.Data.Services
             Player player = players.Where(p => p.ID == id).FirstOrDefault();
             player.Wins += 1;
         }
+
+        public IEnumerable<Player> GetAllWins()
+        {
+            return players.Where(p => p.Wins > 0);
+        }
     }
 }

@@ -111,7 +111,7 @@ namespace ICUScore.Web.Controllers
             IEnumerable<Player> players = new List<Player>();
             List<object> idata = new List<object>();
 
-            players = pTable.GetAll();
+            players = pTable.GetAllWins();
             
 
             IEnumerable<ChartViewModel> scoreBoard = (from p in players
