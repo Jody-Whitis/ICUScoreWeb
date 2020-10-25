@@ -27,6 +27,11 @@ namespace ICUScore.Web.Controllers
             this.playerTable = playerTable;
         }
 
+        /// <summary>
+        /// Display user's latest PVP and Highscore if exists
+        /// </summary>
+        /// <param name="homeViewModel"></param>
+        /// <returns></returns>
         [HttpGet]
         [UserAuthentication]
         public ActionResult HomePage(HomeViewModel homeViewModel)
@@ -50,6 +55,10 @@ namespace ICUScore.Web.Controllers
             }
         }
 
+        /// <summary>
+        /// Login page, redirects to here on logout
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult Index()
         {
@@ -63,6 +72,11 @@ namespace ICUScore.Web.Controllers
             }
         }
 
+        /// <summary>
+        /// Login in attempt, sets the session's data if successful
+        /// </summary>
+        /// <param name="userLogin"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Index(HomeViewModel userLogin)
         {
@@ -80,6 +94,7 @@ namespace ICUScore.Web.Controllers
                     Session.Add("user", loginUser.EmailAddress);
                     Session.Add("name", playerRegistered.Name);
                     Session.Add("id", loginUser.ID);
+                    Session.Add("playerID", loginUser.pID);
                     Session.Add("sessionGUID", Guid.NewGuid());
 
                     return RedirectToAction("Index", "Scoreboard");

@@ -29,9 +29,16 @@ namespace ICUScore.Data.Services
             selectedPlayer.Name = name;
         }
 
-         public IEnumerable<Player> GetAll()
+         public IEnumerable<Player> GetAll(int playerID = -1)
         {
-            return players.OrderBy(r => r.Name);
+            if ((playerID > -1) && (players.Any(x => x.ID == playerID)))
+            {
+                return players.Where(x => x.ID != playerID).OrderBy(r => r.Name);
+            }
+            else
+            {
+                return players.OrderBy(r => r.Name);
+            }
         }
 
         public IEnumerable<Player> GetAllRegistered(Boolean isRegistered)
@@ -59,5 +66,16 @@ namespace ICUScore.Data.Services
           return  players.Where(p => p.ID == id).FirstOrDefault();            
         }
      //Update wins or add new one;
+
+        public void UpdateWins(int id)
+        {
+            Player player = players.Where(p => p.ID == id).FirstOrDefault();
+            player.Wins += 1;
+        }
+
+        public IEnumerable<Player> GetAllWins()
+        {
+            return players.Where(p => p.Wins > 0);
+        }
     }
 }

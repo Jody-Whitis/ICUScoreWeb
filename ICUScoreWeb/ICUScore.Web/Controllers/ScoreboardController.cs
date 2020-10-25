@@ -75,8 +75,19 @@ namespace ICUScore.Web.Controllers
                 if ((ModelState.IsValid) && (Session["sessionGUID"] != null))
                 {
                     newHighscore.LastUpdated = DateTime.Now;
-                    newHighscore.pID = 1;
+                    newHighscore.pID = Convert.ToInt32(Session["playerID"]);
+
+                    HighScore existingScore = new HighScore();
+                    existingScore = highscoreTable.GetScore(newHighscore);
+
+                    if ((existingScore != null) && existingScore.ID > 0)
+                    {
+                        highscoreTable.UpdateScore(existingScore);
+                    }
+                    else
+                    {
                     highscoreTable.AddScore(newHighscore);
+                    }
                     return RedirectToAction("Index");
                 }
                 else

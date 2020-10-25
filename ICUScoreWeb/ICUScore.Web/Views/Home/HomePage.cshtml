@@ -10,12 +10,19 @@
                 <tr>
                     <th>Welcome @Model.Name</th>
                 </tr>
-                <tr>
-                    <th>Your last PvP Match</th> <th>@Model.pvpStat.LastMatch</th>
-                </tr>
-                <tr>
-                    <th>Your Best HS</th><th> @Model.highScore.Highscore</th>
-                </tr>
+                @if (Model.pvpStat != null)
+                {
+                    <tr>
+                        <th>Your last PvP Match</th>
+
+                        <th>@Model.pvpStat.LastMatch</th>
+                    </tr>
+                    <tr>
+                        <th>Your Best HS</th>
+                        <th> @Model.highScore.Highscore</th>
+                    </tr>
+                }
+
             </thead>
         </table>        
     </div>

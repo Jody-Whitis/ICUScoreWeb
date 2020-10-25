@@ -22,6 +22,20 @@ namespace ICUScore.Data.Services
             return highScores.OrderByDescending(s => s.Highscore);
         }
 
+        public HighScore GetScore(HighScore newScore)
+        {
+            HighScore currentScore = new HighScore();
+            currentScore = highScores.Where(h => h.pID == newScore.pID && h.gID == newScore.gID).FirstOrDefault();
+            return currentScore;
+        }
+
+        public void UpdateScore(HighScore newHighscore)
+        {
+            HighScore currentHS = highScores.Where(h => h.pID == newHighscore.pID && h.gID == newHighscore.gID).FirstOrDefault();
+            currentHS.Highscore = newHighscore.Highscore;
+            currentHS.LastUpdated = DateTime.Now;
+        }
+
         public void AddScore(HighScore highScore)
         {
             highScores.Add(highScore);

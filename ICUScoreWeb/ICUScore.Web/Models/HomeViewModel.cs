@@ -7,6 +7,9 @@ using System.Web;
 
 namespace ICUScore.Web.Models
 {
+    /// <summary>
+    /// The view model for the sign in page.
+    /// </summary>
     public class HomeViewModel
     {
         [Required]
